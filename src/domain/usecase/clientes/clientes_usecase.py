@@ -3,8 +3,8 @@ from src.interfaces.clientes_interface import DbInterfaceClientes
 from src.domain.core.clientes_core import Clientes as EntityCliente
 from src.domain.core.contatos_core import Contatos as EntityContato
 from typing import List
-from sqlalchemy import select
-from sqlalchemy import delete
+from sqlalchemy import select, delete, update
+
 
 # logica vai ficar aqui e o databaseactions vai chamar
 
@@ -78,14 +78,24 @@ class ClientesUseCase(DbInterfaceClientes):
                 database.session.execute(
                     delete(tb_clientes).where(tb_clientes.id == id_)
                 )
+
+                database.session.flush()
+                database.session.commit()
             except Exception as exception:
                 database.session.rollback()
                 raise exception
 
-    def update_cliente(self,id_,to_update) -> bool:
+    def update_cliente(self, id_, clientes, column, update_) -> bool:
         with DbConnectionHandler() as database:
             try:
-                ...
+                database.session.execute(
+                    update(clientes),
+                    [
+                        {"id": id_, column: update_}
+                    ]
+                )
+
+                database.session.commit()
 
             except Exception as exception:
                 database.session.rollback()

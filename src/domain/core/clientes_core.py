@@ -1,3 +1,4 @@
+
 from src.domain.settings.base_settings import Base
 
 from sqlalchemy.orm import relationship

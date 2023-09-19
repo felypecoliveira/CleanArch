@@ -34,11 +34,11 @@ class PostgresAdptClientes:
     def get_clientes_contatos(self, clientes, contatos):
         self.db.get_clientes_contatos(clientes, contatos)
 
-    def delete_cliente(self,tb_clientes,id_) -> bool:
-        self.db.delete_cliente(tb_clientes,id_)
+    def delete_cliente(self, tb_clientes, id_) -> bool:
+        self.db.delete_cliente(tb_clientes, id_)
 
-    def update_cliente(self,id_,to_update) -> bool:
-        self.db.update_cliente(id_,to_update)
+    def update_cliente(self, id_, tb_clientes, column, update_) -> bool:
+        self.db.update_cliente(id_, tb_clientes, column, update_)
 
 
 def ioc_config_clientes(binder):
@@ -47,5 +47,3 @@ def ioc_config_clientes(binder):
 
 def register_ioc_clientes():
     inject.configure(ioc_config_clientes)
-
-

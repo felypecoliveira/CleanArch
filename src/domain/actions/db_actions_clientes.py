@@ -40,9 +40,9 @@ class DatabaseActionsClientes:
         self.db.get_clientes_contatos(self,tb1, tb2)
 
 
-    def delete_cliente(self,tb_clientes,id_) -> bool:
-        self.db.delete_cliente(self,tb_clientes,id_)
+    def update_cliente(self,id_,clientes,column,update_) -> bool:
+        self.db.update_cliente(self,id_,clientes,column,update_)
 
-    def update_cliente(self,id_,column_to_update):
-        self.db.delete_cliente(self,id_,column_to_update)
+    def delete_cliente(self,tb,id_) -> bool:
+        self.db.delete_cliente(self,tb,id_)
 

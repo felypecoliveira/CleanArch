@@ -6,8 +6,6 @@ from typing import List
 
 class DbInterfaceClientes(ABC):
 
-
-
     @abstractmethod
     def insert_cliente_contato(self,
                                nome_cliente,
@@ -21,19 +19,17 @@ class DbInterfaceClientes(ABC):
         pass
 
     @abstractmethod
-    def get_clientes(self,clientes) -> List[Clientes]:
-        pass
-
-
-    @abstractmethod
-    def get_clientes_contatos(self,clientes,contatos) -> List[Contatos]:
+    def get_clientes(self, clientes) -> List[Clientes]:
         pass
 
     @abstractmethod
-    def delete_cliente(self,tb_clientes,id_) -> bool:
+    def get_clientes_contatos(self, clientes, contatos) -> List[Contatos]:
         pass
 
     @abstractmethod
-    def update_cliente(self,id_,to_update) -> bool:
+    def delete_cliente(self, tb_clientes, id_) -> bool:
         pass
 
+    @abstractmethod
+    def update_cliente(self, id_, clientes, column, update_) -> bool:
+        pass
