@@ -5,7 +5,7 @@ from src.domain.usecase.contatos.contatos_usecase import ContatosUseCase
 from src.domain.usecase.clientes.clientes_usecase import ClientesUseCase
 from src.adapter.adpt_clientes.pg_clientes import PostgresAdptClientes
 from src.adapter.adpt_contatos.pg_contatos import PostgresAdptContatos
-# from src.domain.core.contatos_core import Contatos
+from src.domain.core.contatos_core import Contatos
 from src.domain.core.clientes_core import Clientes
 
 
