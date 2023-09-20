@@ -74,7 +74,6 @@ class ClientesUseCase(DbInterfaceClientes):
     def delete_cliente(self, tb_clientes, id_) -> bool:
         with DbConnectionHandler() as database:
             try:
-                ...
                 database.session.execute(
                     delete(tb_clientes).where(tb_clientes.id == id_)
                 )
