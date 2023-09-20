@@ -15,6 +15,7 @@ class Service:
         self.db_contatos = db_contatos
         self.db_clientes = db_clientes
 
+    # METODOS PARA AÇÕES RELACIONADAS A CONTATOS
     def update_contato(self, id_, contatos, column, update_):
         self.db_contatos.update_contato(id_, contatos, column, update_)
 
@@ -72,18 +73,3 @@ if __name__ == '__main__':
     config_ioc()
     service = inject.instance(Service)
     service.get_clientes(Clientes)
-
-# register_ioc_clientes()
-#     adapt_clientes = PostgresAdptClientes()
-#     adapt_contatos = PostgresAdptContatos()
-#
-#     # pipeline para uso dos metodos disponiveis nas instancias
-#
-#     adapt_clientes.get_clientes(Clientes)
-#
-#     # adapt_clientes.update_cliente(13,
-#     #                               Clientes,
-#     #                               'nome',
-#     #                               'Nelson Hernandez
-#     #                               Silva Pereira')
-
