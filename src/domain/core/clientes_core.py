@@ -1,13 +1,9 @@
-
 from src.domain.settings.base_settings import Base
-
 from sqlalchemy.orm import relationship
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy import String, Date
 from datetime import date
 from typing import List
-
-
 
 
 
