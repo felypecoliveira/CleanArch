@@ -1,4 +1,8 @@
 from src.domain.settings.base_settings import Base
+<<<<<<< HEAD
+=======
+from sqlalchemy.orm import Mapped, mapped_column
+>>>>>>> ad606603a77d18cd4d664ec0886861863628ca81
 from sqlalchemy import String, Date
 from datetime import date
 from sqlalchemy.orm import Mapped, mapped_column
