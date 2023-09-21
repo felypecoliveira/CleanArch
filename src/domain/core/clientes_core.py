@@ -1,21 +1,10 @@
-<<<<<<< HEAD
-=======
 from src.domain.settings.base_settings import Base
-from sqlalchemy.orm import relationship
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy import String, Date
->>>>>>> f6dfe2ae60696513f06509f0d7916eccf5011f62
 from datetime import date
-
-from sqlalchemy import String, Date
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy.orm import relationship
 from typing import List
-
-<<<<<<< HEAD
-from src.domain.settings.base_settings import Base
-=======
->>>>>>> f6dfe2ae60696513f06509f0d7916eccf5011f62
 
 
 class Clientes(Base):
