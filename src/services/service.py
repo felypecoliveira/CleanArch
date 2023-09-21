@@ -5,7 +5,7 @@ from src.domain.usecase.contatos.contatos_usecase import ContatosUseCase
 from src.domain.usecase.clientes.clientes_usecase import ClientesUseCase
 from src.adapter.adpt_clientes.pg_clientes import PostgresAdptClientes
 from src.adapter.adpt_contatos.pg_contatos import PostgresAdptContatos
-# from src.domain.core.contatos_core import Contatos
+from src.domain.core.contatos_core import Contatos
 from src.domain.core.clientes_core import Clientes
 
 
@@ -67,23 +67,6 @@ def config_ioc():
     inject.configure(configure_injection)
 
 
-
-if __name__ == '__main__':
-    config_ioc()
+def linked_instance():
     service = inject.instance(Service)
-    service.get_clientes(Clientes)
-
-# register_ioc_clientes()
-#     adapt_clientes = PostgresAdptClientes()
-#     adapt_contatos = PostgresAdptContatos()
-#
-#     # pipeline para uso dos metodos disponiveis nas instancias
-#
-#     adapt_clientes.get_clientes(Clientes)
-#
-#     # adapt_clientes.update_cliente(13,
-#     #                               Clientes,
-#     #                               'nome',
-#     #                               'Nelson Hernandez
-#     #                               Silva Pereira')
-
+    return

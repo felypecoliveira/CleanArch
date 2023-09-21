@@ -7,7 +7,7 @@ class DbActionsContatos:
     def __init__(self, db_contatos: DbInterfaceContatos):
         self.db_contatos = db_contatos
 
-    def add_contato_to_cliente(self,id_cliente,
+    def add_contato_to_cliente(self, id_cliente,
                                nome_contato,
                                telefone_contato,
                                email_contato):

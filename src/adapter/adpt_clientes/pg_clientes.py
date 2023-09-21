@@ -49,7 +49,6 @@ def register_ioc_clientes():
     inject.configure(ioc_config_clientes)
 
 
-
 if __name__ == '__main__':
     register_ioc_clientes()
     adpt_clientes = PostgresAdptClientes()

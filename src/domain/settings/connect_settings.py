@@ -15,7 +15,7 @@ class DbConnectionHandler:
         self.session = None
 
     def __create_db_engine(self):
-        engine = create_engine(self.__connection_string,echo=False)
+        engine = create_engine(self.__connection_string, echo=False)
         return engine
 
     def get_engine(self):
@@ -28,4 +28,3 @@ class DbConnectionHandler:
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.session.close()
-

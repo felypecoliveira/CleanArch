@@ -47,4 +47,3 @@ def register_ioc_contatos():
 if __name__ == '__main__':
     register_ioc_contatos()
     adpt_contatos = PostgresAdptContatos()
-

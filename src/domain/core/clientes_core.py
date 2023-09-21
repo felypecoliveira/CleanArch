@@ -1,14 +1,11 @@
-
-from src.domain.settings.base_settings import Base
-
-from sqlalchemy.orm import relationship
-from sqlalchemy.orm import Mapped, mapped_column
-from sqlalchemy import String, Date
 from datetime import date
+
+from sqlalchemy import String, Date
+from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import relationship
 from typing import List
 
-
-
+from src.domain.settings.base_settings import Base
 
 
 class Clientes(Base):
@@ -40,5 +37,3 @@ class Clientes(Base):
                f" Endereco = {self.endereco}," \
                f" Data de nascimento = {self.data_nascimento}>" \
                f"\n"
-
-
