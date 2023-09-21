@@ -70,8 +70,4 @@ def config_ioc():
 
 def linked_instance():
     service = inject.instance(Service)
-<<<<<<< HEAD:src/services/service.py
-    return
-=======
-    service.get_clientes(Clientes)
->>>>>>> f6dfe2ae60696513f06509f0d7916eccf5011f62:src/main.py
+    return service
