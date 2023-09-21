@@ -5,8 +5,6 @@ from src.domain.usecase.contatos.contatos_usecase import ContatosUseCase
 from src.domain.usecase.clientes.clientes_usecase import ClientesUseCase
 from src.adapter.adpt_clientes.pg_clientes import PostgresAdptClientes
 from src.adapter.adpt_contatos.pg_contatos import PostgresAdptContatos
-from src.domain.core.contatos_core import Contatos
-from src.domain.core.clientes_core import Clientes
 
 
 class Service:
@@ -70,8 +68,4 @@ def config_ioc():
 
 def linked_instance():
     service = inject.instance(Service)
-<<<<<<< HEAD:src/services/service.py
-    return
-=======
-    service.get_clientes(Clientes)
->>>>>>> f6dfe2ae60696513f06509f0d7916eccf5011f62:src/main.py
+    return service

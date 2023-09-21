@@ -84,11 +84,12 @@ class ContatosUseCase(DbInterfaceContatos):
         with DbConnectionHandler() as database:
             try:
 
-                stmt = text(f"SELECT id_contatos, nome_contato, telefone, id_cliente from contatos;")
+                stmt = text(f"SELECT id_contatos, nome_contato, telefone, id_cliente, email from contatos;")
                 ob = database.session.execute(stmt).fetchall()
                 for obs in ob:
                     print(f'(Nome contato = {obs.nome_contato}, '
-                          f'Telefone = {obs.telefone}, ID_cliente = {obs.id_cliente})')
+                          f'Telefone = {obs.telefone}, Email = {obs.email},'
+                          f' ID_cliente = {obs.id_cliente})')
 
 
 
