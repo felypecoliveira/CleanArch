@@ -15,6 +15,7 @@ class Service:
         self.db_contatos = db_contatos
         self.db_clientes = db_clientes
 
+    # METODOS PARA AÇÕES RELACIONADAS A CONTATOS
     def update_contato(self, id_, contatos, column, update_):
         self.db_contatos.update_contato(id_, contatos, column, update_)
 
@@ -69,4 +70,8 @@ def config_ioc():
 
 def linked_instance():
     service = inject.instance(Service)
+<<<<<<< HEAD:src/services/service.py
     return
+=======
+    service.get_clientes(Clientes)
+>>>>>>> f6dfe2ae60696513f06509f0d7916eccf5011f62:src/main.py
