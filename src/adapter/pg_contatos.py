@@ -1,6 +1,5 @@
 from src.actions.db_actions_contatos import DbActionsContatos
-from src.interfaces.contatos_interface import DbInterfaceContatos
-from src.domain.usecase.contatos.contatos_usecase import ContatosUseCase
+
 import inject
 
 
@@ -36,14 +35,5 @@ class PostgresAdptContatos:
         self.db_contatos.select_contato()
 
 
-def ioc_config_contatos(binder):
-    binder.bind(DbInterfaceContatos, ContatosUseCase())
 
 
-def register_ioc_contatos():
-    inject.configure(ioc_config_contatos)
-
-
-if __name__ == '__main__':
-    register_ioc_contatos()
-    adpt_contatos = PostgresAdptContatos()

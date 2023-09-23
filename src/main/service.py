@@ -3,8 +3,8 @@ from src.interfaces.contatos_interface import DbInterfaceContatos
 from src.interfaces.clientes_interface import DbInterfaceClientes
 from src.domain.usecase.contatos.contatos_usecase import ContatosUseCase
 from src.domain.usecase.clientes.clientes_usecase import ClientesUseCase
-from src.adapter.adpt_clientes.pg_clientes import PostgresAdptClientes
-from src.adapter.adpt_contatos.pg_contatos import PostgresAdptContatos
+from src.adapter.pg_clientes import PostgresAdptClientes
+from src.adapter.pg_contatos import PostgresAdptContatos
 
 
 class Service:

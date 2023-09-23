@@ -1,4 +1,5 @@
 from src.interfaces.contatos_interface import DbInterfaceContatos
+from src.interfaces.contatos_interface import DbInterfaceContatos
 import inject
 
 
