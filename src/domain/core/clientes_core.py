@@ -1,5 +1,9 @@
 from src.domain.core.contatos_core import  Contatos
 from src.domain.settings.base_settings import Base
+<<<<<<< HEAD
+=======
+from sqlalchemy.orm import Mapped, mapped_column
+>>>>>>> 4bf2fdde33f0f64819373b2b17f96debbc76977d
 from sqlalchemy import String, Date
 from datetime import date
 from sqlalchemy.orm import Mapped, mapped_column
