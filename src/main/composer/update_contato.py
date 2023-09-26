@@ -9,4 +9,3 @@ def updater_contacts():
     return update_contatos
 
 
-updater_contacts().update_contato(1, '', '')
