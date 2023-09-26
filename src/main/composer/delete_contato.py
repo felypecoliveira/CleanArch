@@ -10,6 +10,3 @@ def vanish_contacts():
     return deletion_usecase
 
 
-
-vanish_contacts().delete_contato(22)
-
