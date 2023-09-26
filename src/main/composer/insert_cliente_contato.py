@@ -8,11 +8,3 @@ def insert():
     return inserts
 
 
-insert().insert_cliente_contato('',
-                                         '',
-                                         '',
-                                         '',
-                                         '',
-                                         '',
-                                         '',
-                                         '')
