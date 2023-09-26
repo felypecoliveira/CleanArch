@@ -9,6 +9,3 @@ def select_contato():
     return usecase_select_contato
 
 
-
-select_contato_composer().select_contato(22)
-
