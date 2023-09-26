@@ -10,7 +10,3 @@ def contatos():
     return getcontacts
 
 
-
-a = contatos().get_contatos()
-
-
