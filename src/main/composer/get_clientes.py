@@ -8,10 +8,3 @@ def clientes():
 
     return getclientes
 
-
-
-
-a = clientes().get_clientes()
-
-
-print(a)
