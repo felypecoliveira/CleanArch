@@ -12,9 +12,5 @@ def all_clientes_contatos():
 
 
 
-a = all_clientes_contatos().get_clientes_contatos()
-
-
-
 
 
