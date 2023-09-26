@@ -1,8 +1,9 @@
-from sqlalchemy import create_engine
+from sqlalchemy import select, update, delete, text
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy import create_engine
 
 
-class DbConnectionHandler:
+class ConnectionHandler:
     def __init__(self):
         self.__connection_string = "{}://{}:{}@{}/{}".format(
             'postgresql+psycopg',
@@ -15,7 +16,7 @@ class DbConnectionHandler:
         self.session = None
 
     def __create_db_engine(self):
-        engine = create_engine(self.__connection_string, echo=False)
+        engine = create_engine(self.__connection_string, echo=True)
         return engine
 
     def get_engine(self):
