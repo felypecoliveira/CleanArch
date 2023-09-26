@@ -9,5 +9,3 @@ def vanish_costumer():
 
 
 
-vanish_costumer().delete_cliente(12)
-
