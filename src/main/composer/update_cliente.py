@@ -7,7 +7,3 @@ def updater_costumer():
     update_clientes = UpdateCliente(ClientesRepository)
     return update_clientes
 
-
-updater_costumer().update_cliente(1,
-                                          '',
-                                          '')
