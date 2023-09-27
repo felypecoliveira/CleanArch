@@ -13,9 +13,3 @@ class SelectContato(InterfaceSelectContato):
 
     def select_contato(self, id_) -> List[Contatos]:
         self.contatos_repository.select_contato(id_)
-
-
-repositories = ContatosRepository()
-usecase_select_contato = SelectContato(repositories)
-
-usecase_select_contato.select_contato(23)
