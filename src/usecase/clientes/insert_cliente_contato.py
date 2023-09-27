@@ -31,8 +31,8 @@ class InsertClienteContato(InterfaceClienteContato):
                 email_contato,
             )
 
-            return {'sucess': True, 'detail': 'insert realizado'}
+            return {'sucess': True, 'message': 'insert realizado'}
 
         except Exception as error:
-            return {'sucess': False, 'detail': error}
+            return {'sucess': False, 'message': error}
 
