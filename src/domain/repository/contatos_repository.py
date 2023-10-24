@@ -76,7 +76,6 @@ class ContatosRepository(Interface):
             except Exception as exception:
                 database.session.rollback()
                 raise exception
-        ...
 
     def select_contato(self, id_):
         with ConnectionHandler() as database:
