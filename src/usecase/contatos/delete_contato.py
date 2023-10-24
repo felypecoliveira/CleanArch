@@ -7,6 +7,11 @@ class DeleteContatos(InterfaceDeleteContato):
         self.contatos_repository = contatos_repository
 
     def delete_contato(self, id_: int) -> bool:
-        self.contatos_repository.delete_contato(id_)
+        try:
+            self.contatos_repository.delete_contato(id_)
 
+            return {'sucess':True, 'message': 'delete completed'}
+
+        except Exception as exception:
+            return {'sucess':False, 'message': exception}
 

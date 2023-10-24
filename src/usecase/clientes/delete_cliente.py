@@ -10,8 +10,10 @@ class DeleteCliente(InterfaceDeleteCliente):
         try:
             self.cliente_repository.delete_cliente(id_)
 
-            return {'sucess': True, 'message': 'delete realizado'}
+            return {'sucess':True, 'message': 'delete completed'}
 
 
-        except Exception as error:
-            return {'sucess': False, 'message': error}
+
+        except Exception as exception:
+            return {'sucess': False, 'message': exception}
+

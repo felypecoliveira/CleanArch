@@ -9,7 +9,7 @@ class DeleteContatoController(Interface):
         self.__use_case = use_case
 
     def handle(self, http_request: HttpRequest) -> HttpResponse:
-        delete_contato = http_request.query_params["id_"]
+        delete_contato = http_request.body["id_"]
         response = self.__use_case.delete_contato(delete_contato)
 
         return HttpResponse(
