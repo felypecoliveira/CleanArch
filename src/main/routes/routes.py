@@ -129,3 +129,20 @@ def update_contatos():
 
     except Exception as e:
         return {"error": e}
+
+
+
+@contato_route_bp.route("/delete/contato", methods=["POST"])
+def delete_contato():
+    http_response = request_adapter(request,delete_contato_composer())
+    body_lista = http_response.body
+    status = http_response.status_code
+    try:
+        if http_response:
+            return json.dumps({
+                "body": body_lista,
+                "status_code": status
+            })
+
+    except Exception as e:
+        return {"error": e}
