@@ -29,6 +29,7 @@ def register_cliente_contato():
 
     try:
         return jsonify(http_response.body), http_response.status_code
+
     except Exception:
         return {"mensagem": Exception}
 
@@ -39,8 +40,8 @@ def find_clientes():
         http_response = request_adapter(request, get_clientes_composer())
         return json.dumps({"body": str(http_response.body)})
 
-    except Exception as e:
-        return {"error": e}
+    except Exception as exception:
+        return {"error": exception}
 
 
 @cliente_route_bp.route("/get/clientes_contatos", methods=["GET"])
@@ -52,8 +53,8 @@ def find_clientes_contatos():
             "status_code": str(http_response.status_code)
         })
 
-    except Exception as e:
-        return {"error": e}
+    except Exception as exception:
+        return {"error": exception}
 
 
 @cliente_route_bp.route("/delete/clientes", methods=["POST"])
@@ -63,8 +64,8 @@ def delete_cliente():
     try:
         if http_response:
             return json.dumps({"request": http_response.body})
-    except Exception:
-        return {"mensagem": Exception}
+    except Exception as exception:
+        return {"error": exception}
 
 
 @cliente_route_bp.route("/update/clientes", methods=["POST"])
@@ -79,8 +80,9 @@ def update_cliente():
             })
 
 
-    except Exception as e:
-        return {"error": e}
+
+    except Exception as exception:
+        return {"error": exception}
 
 
 # Contatos rotas
@@ -93,8 +95,8 @@ def get_contatos():
             "status_code": str(http_response.status_code)
         })
 
-    except Exception as e:
-        return {"error": e}
+    except Exception as exception:
+        return {"error": exception}
 
 
 @contato_route_bp.route("/select/contato", methods=["GET"])
@@ -109,8 +111,9 @@ def select_contatos():
             })
 
 
-    except Exception as e:
-        return {"error": e}
+
+    except Exception as exception:
+        return {"error": exception}
 
 
 @contato_route_bp.route("/update/contato", methods=["POST"])
@@ -127,8 +130,9 @@ def update_contatos():
 
 
 
-    except Exception as e:
-        return {"error": e}
+
+    except Exception as exception:
+        return {"error": exception}
 
 
 
@@ -144,5 +148,22 @@ def delete_contato():
                 "status_code": status
             })
 
-    except Exception as e:
-        return {"error": e}
+
+    except Exception as exception:
+        return {"error": exception}
+
+
+@contato_route_bp.route("/add/contato", methods=["POST"])
+def add_contato_to_cliente():
+    http_response = request_adapter(request, add_contato_to_cliente_composer())
+    body_lista = http_response.body
+    status = http_response.status_code
+    try:
+        if http_response:
+            return json.dumps({
+                "body": body_lista,
+                "status_code": status
+            })
+
+    except Exception as exception:
+        return {"error": exception}
