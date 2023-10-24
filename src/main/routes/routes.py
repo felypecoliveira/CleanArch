@@ -111,3 +111,15 @@ def select_contatos():
 
     except Exception as e:
         return {"error": e}
+
+
+@contatos_route_bp.route("/update/contato", methods=["POST"])
+def update_contatos():
+    pass
+
+
+
+
+
+
+
