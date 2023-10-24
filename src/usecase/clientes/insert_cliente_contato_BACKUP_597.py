@@ -30,7 +30,7 @@ class InsertClienteContato(InterfaceClienteContato):
                 email_contato,
             )
 
-
+<<<<<<< HEAD
             return {
 
                 "sucess": True, "attributes": {
@@ -45,9 +45,9 @@ class InsertClienteContato(InterfaceClienteContato):
 
                 "type": "clientes_contatos"
             }
-
+=======
             return {'sucess': True, 'message': 'insert realizado'}
-
+>>>>>>> 8331e22f047109dbcbac85a589ba68900806c472
 
         except Exception as error:
             return {'sucess': False, 'message': error}

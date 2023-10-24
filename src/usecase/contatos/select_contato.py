@@ -32,3 +32,7 @@ class SelectContato(InterfaceSelectContato):
 
 
 
+=======
+    def select_contato(self, id_) -> List[Contatos]:
+        self.contatos_repository.select_contato(id_)
+>>>>>>> 8331e22f047109dbcbac85a589ba68900806c472
