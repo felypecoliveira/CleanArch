@@ -9,11 +9,20 @@ class AddContatoController(Interface):
         self.__use_case = use_case
 
     def handle(self, http_request: HttpRequest) -> HttpResponse:
-        add_contato = http_request.query_params["id", "nome_contato", "telefone", "email"]
+        try:
+            id_cliente = http_request.body["id"]
+            nome_contato = http_request.body["nome_contato"]
+            telefone_contato = http_request.body["telefone_contato"]
+            email = http_request.body["email"]
 
-        response = self.__use_case.add_contato_to_cliente(**add_contato)
+            response = self.__use_case.add_contato_to_cliente(id_cliente,
+                                                              nome_contato,
+                                                              telefone_contato,email)
 
-        return HttpResponse(
-            status_code=200,
-            body=response
-        )
+            return HttpResponse(
+                status_code=200,
+                body=response
+            )
+
+        except Exception as exception:
+            return {"error": exception}
