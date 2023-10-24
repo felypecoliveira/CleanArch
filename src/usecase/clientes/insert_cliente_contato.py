@@ -46,7 +46,6 @@ class InsertClienteContato(InterfaceClienteContato):
                 "type": "clientes_contatos"
             }
 
-            return {'sucess': True, 'message': 'insert realizado'}
 
 
         except Exception as error:
