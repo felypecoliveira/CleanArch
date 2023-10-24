@@ -25,6 +25,6 @@ class Contatos(Base):
         self.email = email
 
     def __repr__(self):
-        return f"Contatos < nome = {self.nome_contato}," \
+        return f"Contatos < {self.id_contatos} nome = {self.nome_contato}," \
                f"telefone = {self.telefone_contato}," \
                f"email = {self.email}>"

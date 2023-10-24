@@ -16,7 +16,6 @@ class UpdateClientesController(Interface):
 
         return HttpResponse(
             status_code=200,
-            body={
-                "data": response
-            }
+            body=response
+
         )

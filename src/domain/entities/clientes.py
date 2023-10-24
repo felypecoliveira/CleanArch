@@ -30,7 +30,7 @@ class Clientes(Base):
 
 
     def __repr__(self) -> str:
-        return f"Cliente < Nome completo = {self.nome}," \
+        return f"Cliente < ID = {self.id}, Nome completo = {self.nome}," \
                f" Telefone = {self.telefone}," \
                f" CPF = {self.cpf}" \
                f" Endereco = {self.endereco}," \

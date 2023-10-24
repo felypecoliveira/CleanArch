@@ -14,7 +14,7 @@ class ContatosRepositoryInterface(ABC):
 
     @abstractmethod
     def update_contato(self,
-                       id_: int,
+                       id: int,
                        column: ContatosDominio,
                        update_: str):
         raise Exception(f"Must implement all methods from the interface related ")

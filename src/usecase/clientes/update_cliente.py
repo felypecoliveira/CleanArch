@@ -17,7 +17,7 @@ class UpdateCliente(InterfaceUpdateCliente):
                                                               column,
                                                               update_)
 
-            return {'sucess': True, 'message': 'update realizado'}
+            return {'sucess': True, 'message': "update completed sucessfully "}
 
 
 

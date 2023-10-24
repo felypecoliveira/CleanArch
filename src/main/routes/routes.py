@@ -74,7 +74,7 @@ def update_cliente():
     try:
         if http_response:
             return json.dumps({
-                "body": body_lista,
+                "body": str(body_lista),
                 "status_code": str(http_response.status_code)
             })
 
@@ -113,13 +113,19 @@ def select_contatos():
         return {"error": e}
 
 
-@contatos_route_bp.route("/update/contato", methods=["POST"])
+@contato_route_bp.route("/update/contato", methods=["POST"])
 def update_contatos():
-    pass
+    http_response = request_adapter(request, update_contato_composer())
+    body_lista = http_response.body
+    try:
+        if http_response:
+            return json.dumps({
+                "body": str(body_lista),
+                "status_code": str(http_response.status_code)
+            })
 
 
 
 
-
-
-
+    except Exception as e:
+        return {"error": e}

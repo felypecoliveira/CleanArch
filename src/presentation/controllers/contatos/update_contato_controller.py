@@ -9,8 +9,10 @@ class UpdateContatoController(Interface):
         self.__use_case = use_case
 
     def handle(self, http_request: HttpRequest) -> HttpResponse:
-        update_contato = http_request.query_params[["id_", "column", "update_"]]
-        response = self.__use_case.update_contato(**update_contato)
+        id_contatos = http_request.body["id_contatos"]
+        column = http_request.body["column"]
+        update_ = http_request.body["update_"]
+        response = self.__use_case.update_contato(id_contatos, column, update_)
 
         return HttpResponse(
             status_code=200,

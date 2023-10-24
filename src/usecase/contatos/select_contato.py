@@ -1,20 +1,23 @@
-from src.interfaces.update_contato import InterfaceUpdateContatos
+from src.interfaces.select_contato import InterfaceSelectContato
 from src.main.interfaces.contatos_repository_interface import ContatosRepositoryInterface
+from src.domain.infra.model.contatos import ContatosDominio
+from typing import List
 
 
-class UpdateContatos(InterfaceUpdateContatos):
+class SelectContato(InterfaceSelectContato):
+    # ID do cliente para verificar sua lista
+    # de contatos
     def __init__(self, contatos_repository: ContatosRepositoryInterface):
         self.contatos_repository = contatos_repository
 
-    def update_contato(self, id_, column, update_):
-
+    def select_contato(self, id_) -> List[ContatosDominio]:
         try:
-            response = self.contatos_repository.update_contato(id_, column, update_)
+            response = self.contatos_repository.select_contato(id_)
 
 
             return {
                 'sucess': True,
-                'message': "update sucessfully completed"
+                'message': response
             }
 
         except Exception as exception:
