@@ -11,13 +11,24 @@ class AddContatoCliente(InterfaceContatoCliente):
                                nome_contato,
                                telefone,
                                email):
-        self.contatos_repository.add_contato_to_cliente(
-            id,
-            nome_contato,
-            telefone,
-            email
-        )
+        try:
+            self.contatos_repository.add_contato_to_cliente(
+                id,
+                nome_contato,
+                telefone,
+                email
+            )
 
+            return {
+                "sucess":True, "attributes":{
+                    "nome_contato":nome_contato,
+                    "telefone_contato":telefone,
+                    "email":email,
+                    "id_cliente":id
+                },
+                "type": "contatos_clientes"
+                }
 
-
+        except Exception as error:
+            return {'sucess': False, 'message': error}
 
