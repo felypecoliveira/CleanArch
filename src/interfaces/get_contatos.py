@@ -1,8 +1,8 @@
+from src.domain.infra.model.contatos import ContatosDominio
 from abc import ABC, abstractmethod
-from src.domain.models.contatos import Contatos
 
 
 class InterfaceGetContatos(ABC):
     @abstractmethod
-    def get_contatos(self) -> Contatos:
+    def get_contatos(self) -> ContatosDominio:
         raise Exception("Must implement this method")

@@ -1,5 +1,5 @@
+from src.domain.infra.model.clientes import ClientesDominio
 from abc import abstractmethod, ABC
-from src.domain.models.clientes import Clientes
 from datetime import date
 
 
@@ -13,6 +13,6 @@ class InterfaceClienteContato(ABC):
                                data_nascimento: date,
                                nome_contato: str,
                                telefone_contato: str,
-                               email_contato: str) -> Clientes:
+                               email: str) -> ClientesDominio:
 
         raise Exception(f"Must Implement this method")

@@ -1,9 +1,9 @@
 from src.main.interfaces.clientes_repository_interface import ClientesRepositoryInterface as Interface
-from src.domain.settings.connect_settings import *
-from src.domain.core.clientes import Clientes as EntityClientes
-from src.domain.core.contatos import Contatos as EntityContatos
-from src.domain.models.clientes import Clientes
-from src.domain.models.contatos import Contatos
+from src.domain.infra.model.clientes import ClientesDominio as clientes_domain
+from src.domain.infra.model.contatos import ContatosDominio as contatos_domain
+from src.domain.entities.clientes import Clientes as ClientesEntity
+from src.domain.infra.db.connect_settings import *
+from src.domain.entities.contatos import Contatos as ContatosEntity
 from datetime import date
 from typing import List
 
@@ -18,21 +18,22 @@ class ClientesRepository(Interface):
                                data_nascimento: date,
                                nome_contato: str,
                                telefone_contato: str,
-                               email_contato: str) -> Clientes:
+                               email: str) -> bool:
 
         with ConnectionHandler() as database:
             try:
-                cliente_registry = EntityClientes(
+                cliente_registry = ClientesEntity(
                     nome,
                     telefone,
                     cpf,
                     endereco,
-                    data_nascimento)
+                    data_nascimento
+                )
 
-                contato_registry = EntityContatos(
+                contato_registry = ContatosEntity(
                     nome_contato,
                     telefone_contato,
-                    email_contato
+                    email
                 )
 
                 cliente_registry.contatos.append(contato_registry)
@@ -44,10 +45,10 @@ class ClientesRepository(Interface):
                 database.session.rollback()
                 raise exception
 
-    def get_clientes(self) -> Clientes:
+    def get_clientes(self) -> clientes_domain:
         with ConnectionHandler() as database:
             try:
-                stmt = select(EntityClientes).order_by(EntityClientes.id)
+                stmt = select(ClientesEntity).order_by(ClientesEntity.id)
                 objetos = database.session.scalars(stmt).all()
                 return objetos
 
@@ -55,12 +56,11 @@ class ClientesRepository(Interface):
                 database.session.rollback()
                 raise exception
 
-    def get_clientes_contatos(self):
+    def get_clientes_contatos(self) -> List[contatos_domain]:
         with ConnectionHandler() as database:
             try:
-                stmt = select(EntityClientes, EntityContatos) \
-                    .join(EntityClientes.contatos) \
-                    .order_by(EntityClientes.id, EntityContatos.id_contatos)
+                stmt = select(ClientesEntity, ContatosEntity).join(ClientesEntity.contatos) \
+                    .order_by(ClientesEntity.id, ContatosEntity.id_contatos)
 
                 row_list = []
                 for row in database.session.execute(stmt):
@@ -76,11 +76,10 @@ class ClientesRepository(Interface):
         with ConnectionHandler() as database:
             try:
                 database.session.execute(
-                    delete(EntityClientes)
-                    .where(EntityClientes.id == id_)
+                    delete(ClientesEntity)
+                    .where(ClientesEntity.id == id_)
                 )
 
-                database.session.flush()
                 database.session.commit()
 
 
@@ -96,7 +95,7 @@ class ClientesRepository(Interface):
         with ConnectionHandler() as database:
             try:
                 database.session.execute(
-                    update(EntityClientes),
+                    update(ClientesEntity),
                     [
                         {"id": id_, column: update_}
                     ]

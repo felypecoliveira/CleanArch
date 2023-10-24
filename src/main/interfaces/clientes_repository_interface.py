@@ -1,7 +1,7 @@
+from src.domain.entities.clientes import Clientes
+from src.domain.entities.contatos import Contatos
 from abc import ABC, abstractmethod
 from datetime import date
-from src.domain.models.clientes import Clientes
-from src.domain.models.contatos import Contatos
 
 
 class ClientesRepositoryInterface(ABC):
@@ -14,24 +14,24 @@ class ClientesRepositoryInterface(ABC):
                                data_nascimento: date,
                                nome_contato: str,
                                telefone_contato: str,
-                               email_contato: str) -> Clientes:
-        raise Exception("Must implement this method insert_cliente_contato")
+                               email: str) -> Clientes:
+        raise Exception(f"Must implement all methods from the interface related ")
 
     @abstractmethod
     def get_clientes(self) -> Clientes:
-        raise Exception("Must implement this method get_clientes")
+        raise Exception(f"Must implement all methods from the interface related ")
 
     @abstractmethod
-    def get_clientes_contatos(self):
-        raise Exception("Must implement this method get_clientes_contatos")
+    def get_clientes_contatos(self) -> Contatos:
+        raise Exception(f"Must implement all methods from the interface related ")
 
     @abstractmethod
     def delete_cliente(self, id_: int) -> bool:
-        raise Exception("Must implement this method delete_cliente")
+        raise Exception(f"Must implement all methods from the interface related ")
 
     @abstractmethod
     def update_cliente(self,
                        id_: int,
                        column: Clientes,
                        update_: str | date) -> bool:
-        pass
+        raise Exception(f"Must implement all methods from the interface related ")

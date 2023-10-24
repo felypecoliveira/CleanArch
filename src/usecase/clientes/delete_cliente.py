@@ -15,7 +15,3 @@ class DeleteCliente(InterfaceDeleteCliente):
 
         except Exception as error:
             return {'sucess': False, 'message': error}
-
-
-
-

@@ -7,6 +7,20 @@ class GetContatos(InterfaceGetContatos):
         self.contatos_repository = contatos_repository
 
     def get_contatos(self):
-        self.contatos_repository.get_contatos()
+
+        try:
+            response = self.contatos_repository.get_contatos()
+
+            return {
+                'sucess': True,
+                'message': response
+            }
+        except Exception as error:
+            return {
+                'sucess': False,
+                'detail': error
+            }
+
+
 
 

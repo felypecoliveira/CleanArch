@@ -1,8 +1,8 @@
-from src.domain.settings.connect_settings import *
-from src.domain.core.clientes import Clientes as EntityClientes
-from src.domain.core.contatos import Contatos as EntityContatos
 from src.main.interfaces.contatos_repository_interface import ContatosRepositoryInterface as Interface
-from src.domain.models.contatos import Contatos
+from src.domain.entities.clientes import Clientes as EntityClientes
+from src.domain.entities.contatos import Contatos as EntityContatos
+from src.domain.infra.model.contatos import ContatosDominio
+from src.domain.infra.db.connect_settings import *
 
 
 class ContatosRepository(Interface):
@@ -35,21 +35,30 @@ class ContatosRepository(Interface):
 
     def update_contato(self,
                        id_: int,
-                       column: Contatos,
+                       column: ContatosDominio,
                        update_: str) -> bool:
-        ...
+        with ConectionHandler() as database:
+            try:
+                database.session.execute(
+                    update(EntityContatos),
+                    [
+                        {"id":id_, column: update_}
+                    ]
+                    )
 
+                database.session.commit()
+
+            except Exception as exception:
+                database.session.roolback()
+                raise exception
+    
     def get_contatos(self):
         with ConnectionHandler() as database:
             try:
 
-                stmt = select(EntityContatos) \
-                    .order_by(EntityContatos.id_contatos)
+                stmt = select(EntityContatos).order_by(EntityContatos.id_contatos)
                 objects = database.session.scalars(stmt).all()
-                print(objects)
-
-
-
+                return objects
 
             except Exception as exception:
                 database.session.rollback()
@@ -91,12 +100,13 @@ class ContatosRepository(Interface):
 
                 resultado2 = q2.all()
 
+                lista_contatos = []
                 for r2 in resultado2:
-                    print(f"Nome = {r2.nome_contato}\n"
-                          f"Telefone = {r2.telefone}\n"
-                          f"Email = {r2.email}")
-                    print("")
-                print(f"Total de {len(resultado2)} contatos")
+                    lista_contatos.append(r2.nome_contato)
+                    lista_contatos.append(r2.telefone_contato)
+                    lista_contatos.append(r2.email)
+
+                return lista_contatos
 
             except Exception as exception:
                 database.session.rollback()
