@@ -72,6 +72,21 @@ class ClientesRepository(Interface):
                 database.session.rollback()
                 raise exception
 
+    def select_cliente_by_name(self, name: str):
+        with ConnectionHandler() as database:
+            try:
+                cliente = (
+                    database.session
+                    .query(ClientesEntity)
+                    .filter(ClientesEntity.nome == name)
+                    .all()
+                )
+                return cliente
+
+            except Exception as exception:
+                database.session.rollback()
+                raise exception
+
     def delete_cliente(self, id_: int) -> bool:
         with ConnectionHandler() as database:
             try:

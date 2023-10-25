@@ -35,3 +35,10 @@ class ClientesRepositoryInterface(ABC):
                        column: Clientes,
                        update_: str | date) -> bool:
         raise Exception(f"Must implement all methods from the interface related ")
+
+
+
+    @abstractmethod
+    def select_cliente_by_name(self,name: str):
+        raise Exception(f"Must implement all methods from the interface related ")
+
