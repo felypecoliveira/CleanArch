@@ -5,25 +5,23 @@ from flask import Blueprint, request, jsonify
 from src.main.adapters.request_adapter import request_adapter
 
 # Import composers clientes
-from src.main.composer.clientes.insert_cliente_contato import insert_cliente_contato_composer
-from src.main.composer.clientes.get_cliente_contatos import get_cliente_contatos_composer
-from src.main.composer.clientes.delete_cliente import delete_cliente_composer
-from src.main.composer.clientes.update_cliente import update_cliente_composer
-from src.main.composer.clientes.get_clientes import get_clientes_composer
+from src.main.composer.clientes.select_cliente_by_name_composer import select_cliente_by_name_composer
+from src.main.composer.clientes.insert_cliente_contato_composer import insert_cliente_contato_composer
+from src.main.composer.clientes.get_cliente_contatos_composer import get_cliente_contatos_composer
+from src.main.composer.clientes.delete_cliente_composer import delete_cliente_composer
+from src.main.composer.clientes.update_cliente_composer import update_cliente_composer
+from src.main.composer.clientes.get_clientes_composer import get_clientes_composer
 
 # Import composers contatos
-from src.main.composer.contatos.addcontato_to_cliente import add_contato_to_cliente_composer
-from src.main.composer.contatos.delete_contato import delete_contato_composer
-from src.main.composer.contatos.update_contato import update_contato_composer
-from src.main.composer.contatos.select_contato import select_contato_composer
-from src.main.composer.contatos.get_contatos import get_contatos_composer
+from src.main.composer.contatos.addcontato_to_cliente_composer import add_contato_to_cliente_composer
+from src.main.composer.contatos.delete_contato_composer import delete_contato_composer
+from src.main.composer.contatos.update_contato_composer import update_contato_composer
+from src.main.composer.contatos.select_contato_composer import select_contato_composer
+from src.main.composer.contatos.get_contatos_composer import get_contatos_composer
 
 # Nomeando rotas
 cliente_route_bp = Blueprint("clientes_routes", __name__)
 contato_route_bp = Blueprint("contatos_routes", __name__)
-
-
-# Import Mappers Clientes e Contatos
 
 
 # Clientes rotas
@@ -31,7 +29,8 @@ contato_route_bp = Blueprint("contatos_routes", __name__)
 def register_cliente_contato():
     try:
         http_response = request_adapter(request, insert_cliente_contato_composer())
-        return jsonify(http_response.body), http_response.status_code
+        if http_response:
+            return jsonify(http_response.body), http_response.status_code
 
 
     except Exception as exception:
@@ -42,10 +41,11 @@ def register_cliente_contato():
 def find_clientes():
     try:
         http_response = request_adapter(request, get_clientes_composer())
-        return json.dumps(
-            {"body": str(http_response.body),
-             "status": str(http_response.status_code)
-             })
+        if http_response:
+            return json.dumps(
+                {"body": str(http_response.body),
+                 "status": str(http_response.status_code)
+                 })
 
 
     except Exception as exception:
@@ -56,10 +56,25 @@ def find_clientes():
 def find_clientes_contatos():
     try:
         http_response = request_adapter(request, get_cliente_contatos_composer())
-        return json.dumps({
-            "body": str(http_response.body),
-            "status_code": str(http_response.status_code)
-        })
+        if http_response:
+            return json.dumps({
+                "body": str(http_response.body),
+                "status_code": str(http_response.status_code)
+            })
+
+    except Exception as exception:
+        return {"error": exception}
+
+
+@cliente_route_bp.route("/select/by_name/cliente", methods=["GET"])
+def select_cliente_by_names():
+    try:
+        http_response = request_adapter(request, select_cliente_by_name_composer())
+        if http_response:
+            return json.dumps({
+                "body": str(http_response.body),
+                "status_code": str(http_response.status_code)
+            })
 
     except Exception as exception:
         return {"error": exception}
