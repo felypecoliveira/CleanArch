@@ -23,12 +23,14 @@ cliente_route_bp = Blueprint("clientes_routes", __name__)
 contato_route_bp = Blueprint("contatos_routes", __name__)
 
 
+# Import Mappers Clientes e Contatos
+
+
 # Clientes rotas
 @cliente_route_bp.route("/cadastro", methods=["POST"])
 def register_cliente_contato():
-    http_response = request_adapter(request, insert_cliente_contato_composer())
-
     try:
+        http_response = request_adapter(request, insert_cliente_contato_composer())
         return jsonify(http_response.body), http_response.status_code
 
 
@@ -65,9 +67,8 @@ def find_clientes_contatos():
 
 @cliente_route_bp.route("/delete/clientes", methods=["POST"])
 def delete_cliente():
-    http_response = request_adapter(request, delete_cliente_composer())
-
     try:
+        http_response = request_adapter(request, delete_cliente_composer())
         if http_response:
             return json.dumps({"request": http_response.body})
 
@@ -77,9 +78,9 @@ def delete_cliente():
 
 @cliente_route_bp.route("/update/clientes", methods=["POST"])
 def update_cliente():
-    http_response = request_adapter(request, update_cliente_composer())
-    body_lista = http_response.body
     try:
+        http_response = request_adapter(request, update_cliente_composer())
+        body_lista = http_response.body
         if http_response:
             return json.dumps({
                 "body": str(body_lista),
@@ -106,9 +107,9 @@ def get_contatos():
 
 @contato_route_bp.route("/select/contato", methods=["GET"])
 def select_contatos():
-    http_response = request_adapter(request, select_contato_composer())
-    body_lista = http_response.body
     try:
+        http_response = request_adapter(request, select_contato_composer())
+        body_lista = http_response.body
         if http_response:
             return json.dumps({
                 "body": str(body_lista),
@@ -122,9 +123,9 @@ def select_contatos():
 
 @contato_route_bp.route("/update/contato", methods=["POST"])
 def update_contatos():
-    http_response = request_adapter(request, update_contato_composer())
-    body_lista = http_response.body
     try:
+        http_response = request_adapter(request, update_contato_composer())
+        body_lista = http_response.body
         if http_response:
             return json.dumps({
                 "body": str(body_lista),
@@ -136,13 +137,12 @@ def update_contatos():
         return {"error": exception}
 
 
-
 @contato_route_bp.route("/delete/contato", methods=["POST"])
 def delete_contato():
-    http_response = request_adapter(request,delete_contato_composer())
-    body_lista = http_response.body
-    status = http_response.status_code
     try:
+        http_response = request_adapter(request, delete_contato_composer())
+        body_lista = http_response.body
+        status = http_response.status_code
         if http_response:
             return json.dumps({
                 "body": body_lista,
@@ -156,10 +156,10 @@ def delete_contato():
 
 @contato_route_bp.route("/add/contato", methods=["POST"])
 def add_contato_to_cliente():
-    http_response = request_adapter(request, add_contato_to_cliente_composer())
-    body_lista = http_response.body
-    status = http_response.status_code
     try:
+        http_response = request_adapter(request, add_contato_to_cliente_composer())
+        body_lista = http_response.body
+        status = http_response.status_code
         if http_response:
             return json.dumps({
                 "body": body_lista,
