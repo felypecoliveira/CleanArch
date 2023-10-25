@@ -1,4 +1,4 @@
-from src.interfaces.delete_contato import InterfaceDeleteContato
+from src.interfaces.contatos.delete_contato import InterfaceDeleteContato
 from src.main.interfaces.contatos_repository_interface import ContatosRepositoryInterface
 
 

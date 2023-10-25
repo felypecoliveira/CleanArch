@@ -1,5 +1,5 @@
 from src.main.interfaces.contatos_repository_interface import ContatosRepositoryInterface
-from src.interfaces.get_contatos import InterfaceGetContatos
+from src.interfaces.contatos.get_contatos import InterfaceGetContatos
 
 
 class GetContatos(InterfaceGetContatos):

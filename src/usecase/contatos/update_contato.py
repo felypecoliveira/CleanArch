@@ -1,4 +1,4 @@
-from src.interfaces.update_contato import InterfaceUpdateContatos
+from src.interfaces.contatos.update_contato import InterfaceUpdateContatos
 from src.main.interfaces.contatos_repository_interface import ContatosRepositoryInterface
 
 

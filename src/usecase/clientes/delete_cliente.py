@@ -1,4 +1,4 @@
-from src.interfaces.delete_cliente import InterfaceDeleteCliente
+from src.interfaces.clientes.delete_cliente import InterfaceDeleteCliente
 from src.main.interfaces.clientes_repository_interface import ClientesRepositoryInterface
 
 

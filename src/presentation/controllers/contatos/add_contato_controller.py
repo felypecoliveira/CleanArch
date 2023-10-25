@@ -1,5 +1,5 @@
 from src.presentation.controllers.interface.controller import ControllerInterface as Interface
-from src.interfaces.addcontato_to_cliente import InterfaceContatoCliente
+from src.interfaces.contatos.addcontato_to_cliente import InterfaceContatoCliente
 from src.presentation.http_types.http_response import HttpResponse
 from src.presentation.http_types.http_request import HttpRequest
 

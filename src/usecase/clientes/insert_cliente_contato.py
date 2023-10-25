@@ -1,5 +1,5 @@
 from src.main.interfaces.clientes_repository_interface import ClientesRepositoryInterface
-from src.interfaces.insert_cliente_contato import InterfaceClienteContato
+from src.interfaces.clientes.insert_cliente_contato import InterfaceClienteContato
 from src.domain.infra.model.clientes import ClientesDominio
 from datetime import date
 

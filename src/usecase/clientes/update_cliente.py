@@ -1,6 +1,5 @@
-from src.interfaces.update_cliente import InterfaceUpdateCliente
+from src.interfaces.clientes.update_cliente import InterfaceUpdateCliente
 from src.main.interfaces.clientes_repository_interface import ClientesRepositoryInterface
-from src.domain.repository.clientes_repository import ClientesRepository
 from datetime import date
 
 

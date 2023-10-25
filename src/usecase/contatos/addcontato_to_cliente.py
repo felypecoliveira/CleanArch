@@ -1,4 +1,4 @@
-from src.interfaces.addcontato_to_cliente import InterfaceContatoCliente
+from src.interfaces.contatos.addcontato_to_cliente import InterfaceContatoCliente
 from src.main.interfaces.contatos_repository_interface import ContatosRepositoryInterface
 
 
