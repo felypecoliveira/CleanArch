@@ -1,5 +1,6 @@
 from src.main.interfaces.contatos_repository_interface import ContatosRepositoryInterface
-from src.interfaces.contatos.get_contatos import InterfaceGetContatos
+from src.interfaces.contatos.get_contatos_interface import InterfaceGetContatos
+from src.errors.types.http_unprocessable_entity import HttpUnprocessableEntityError
 
 
 class GetContatos(InterfaceGetContatos):
@@ -18,7 +19,7 @@ class GetContatos(InterfaceGetContatos):
         except Exception as error:
             return {
                 'sucess': False,
-                'detail': error
+                'detail': HttpUnprocessableEntityError(error)
             }
 
 
