@@ -1,7 +1,7 @@
-from src.presentation.controllers.interface.controller import ControllerInterface as Interface
+from src.presentation.controllers.interface.controller_interface import ControllerInterface as Interface
 from src.presentation.http_types.http_request import HttpRequest
 from src.presentation.http_types.http_response import HttpResponse
-from src.interfaces.clientes.delete_cliente import InterfaceDeleteCliente
+from src.interfaces.clientes.delete_cliente_interface import InterfaceDeleteCliente
 
 
 class DeleteClienteController(Interface):
@@ -14,6 +14,8 @@ class DeleteClienteController(Interface):
 
         return HttpResponse(
             status_code=200,
-            body=response
+            body={
+                "data": response
+            }
         )
 

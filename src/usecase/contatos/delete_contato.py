@@ -1,5 +1,6 @@
-from src.interfaces.contatos.delete_contato import InterfaceDeleteContato
+from src.interfaces.contatos.delete_contato_interface import InterfaceDeleteContato
 from src.main.interfaces.contatos_repository_interface import ContatosRepositoryInterface
+from src.errors.types.http_unprocessable_entity import HttpUnprocessableEntityError
 
 
 class DeleteContatos(InterfaceDeleteContato):
@@ -8,10 +9,10 @@ class DeleteContatos(InterfaceDeleteContato):
 
     def delete_contato(self, id_: int) -> bool:
         try:
-            self.contatos_repository.delete_contato(id_)
-
-            return {'sucess':True, 'message': 'delete completed'}
+            confirm = self.contatos_repository.confirm_id_contato(id_)
+            if confirm:
+                response = self.contatos_repository.delete_contato(id_)
+                return {'sucess': True, 'message': 'delete completed'}
 
         except Exception as exception:
-            return {'sucess':False, 'message': exception}
-
+            return {'sucess': False, 'message': HttpUnprocessableEntityError("Id contato nao encontrado")}
