@@ -13,6 +13,11 @@ class ContatosRepositoryInterface(ABC):
         raise Exception(f"Must implement all methods from the interface related ")
 
     @abstractmethod
+    def confirm_id_contato(self, id: int):
+        raise Exception(f"Must implement all methods from the interface related ")
+
+
+    @abstractmethod
     def update_contato(self,
                        id: int,
                        column: ContatosDominio,
