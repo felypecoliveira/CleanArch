@@ -1,4 +1,4 @@
-from src.interfaces.contatos.select_contato import InterfaceSelectContato
+from src.interfaces.contatos.select_contato_interface import InterfaceSelectContato
 from src.main.interfaces.contatos_repository_interface import ContatosRepositoryInterface
 from src.domain.infra.model.contatos import ContatosDominio
 from typing import List
@@ -13,18 +13,13 @@ class SelectContato(InterfaceSelectContato):
     def select_contato(self, id_) -> List[ContatosDominio]:
         try:
             response = self.contatos_repository.select_contato(id_)
+            if response is None:
+                return {'sucess': False, 'message': "cliente não existe"}
 
+            return {'sucess': True, 'message': response}
 
-            return {
-                'sucess': True,
-                'message': response
-            }
-
-        except Exception as exception:
+        except Exception as error:
             return {
                 'sucess': False,
-                'detail': exception
+                'message': error
             }
-
-
-
