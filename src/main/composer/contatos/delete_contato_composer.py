@@ -1,5 +1,5 @@
 from src.presentation.controllers.contatos.delete_contato_controller import DeleteContatoController
-from src.domain.repository.contatos_repository import ContatosRepository
+from src.domain.infra.repository.contatos_repository import ContatosRepository
 from src.usecase.contatos.delete_contato import DeleteContatos
 
 

@@ -1,5 +1,5 @@
 from src.presentation.controllers.clientes.update_cliente_controller import UpdateClientesController
-from src.domain.repository.clientes_repository import ClientesRepository
+from src.domain.infra.repository.clientes_repository import ClientesRepository
 from src.usecase.clientes.update_cliente import UpdateCliente
 
 

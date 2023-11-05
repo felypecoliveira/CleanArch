@@ -1,5 +1,5 @@
 from src.presentation.controllers.clientes.delete_cliente_controller import DeleteClienteController
-from src.domain.repository.clientes_repository import ClientesRepository
+from src.domain.infra.repository.clientes_repository import ClientesRepository
 from src.usecase.clientes.delete_cliente import DeleteCliente
 
 

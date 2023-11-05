@@ -1,5 +1,5 @@
 from src.presentation.controllers.contatos.update_contato_controller import UpdateContatoController
-from src.domain.repository.contatos_repository import ContatosRepository
+from src.domain.infra.repository.contatos_repository import ContatosRepository
 from src.usecase.contatos.update_contato import UpdateContatos
 
 
