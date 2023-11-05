@@ -1,5 +1,5 @@
 from src.interfaces.clientes.delete_cliente_interface import InterfaceDeleteCliente
-from src.main.interfaces.clientes_repository_interface import ClientesRepositoryInterface
+from src.domain.interfaces.clientes_repository_interface import ClientesRepositoryInterface
 from src.errors.types.http_unprocessable_entity import HttpUnprocessableEntityError
 
 

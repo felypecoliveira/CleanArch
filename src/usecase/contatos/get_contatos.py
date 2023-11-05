@@ -1,4 +1,4 @@
-from src.main.interfaces.contatos_repository_interface import ContatosRepositoryInterface
+from src.domain.interfaces.contatos_repository_interface import ContatosRepositoryInterface
 from src.interfaces.contatos.get_contatos_interface import InterfaceGetContatos
 from src.errors.types.http_unprocessable_entity import HttpUnprocessableEntityError
 

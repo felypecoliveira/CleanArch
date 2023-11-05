@@ -1,5 +1,5 @@
 from src.interfaces.contatos.select_contato_interface import InterfaceSelectContato
-from src.main.interfaces.contatos_repository_interface import ContatosRepositoryInterface
+from src.domain.interfaces.contatos_repository_interface import ContatosRepositoryInterface
 from src.domain.infra.model.contatos import ContatosDominio
 from typing import List
 

@@ -1,4 +1,4 @@
-from src.main.interfaces.clientes_repository_interface import ClientesRepositoryInterface as Interface
+from src.domain.interfaces.clientes_repository_interface import ClientesRepositoryInterface as Interface
 from src.domain.infra.model.clientes import ClientesDominio as clientes_domain
 from src.domain.infra.model.contatos import ContatosDominio as contatos_domain
 from src.domain.entities.clientes import Clientes as ClientesEntity

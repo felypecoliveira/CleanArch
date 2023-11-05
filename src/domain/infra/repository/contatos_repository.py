@@ -1,4 +1,4 @@
-from src.main.interfaces.contatos_repository_interface import ContatosRepositoryInterface as Interface
+from src.domain.interfaces.contatos_repository_interface import ContatosRepositoryInterface as Interface
 from src.domain.entities.clientes import Clientes as EntityClientes
 from src.domain.entities.contatos import Contatos as EntityContatos
 from src.domain.infra.db.connect_settings import *
