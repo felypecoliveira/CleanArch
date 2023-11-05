@@ -29,6 +29,21 @@ class ContatosRepository(Interface):
                 database.session.rollback()
                 raise exception
 
+    def confirm_id_contato(self, id: int):
+        with ConnectionHandler() as database:
+            try:
+                contato = (
+                    database.session
+                    .query(EntityContatos)
+                    .filter(EntityContatos.id_contatos == id)
+                    .one()
+                )
+                return contato
+
+            except Exception as exception:
+                database.session.rollback()
+                raise exception
+
     def update_contato(self,
                        id: int,
                        column: str,
