@@ -45,6 +45,21 @@ class ClientesRepository(Interface):
                 database.session.rollback()
                 raise exception
 
+    def confirm_id_cliente(self, id:int):
+        with ConnectionHandler() as database:
+            try:
+                cliente = (
+                    database.session
+                    .query(ClientesEntity)
+                    .filter(ClientesEntity.id == id)
+                    .one()
+                )
+                return cliente
+
+            except Exception as exception:
+                database.session.rollback()
+                raise exception
+
     def get_clientes(self) -> clientes_domain:
         with ConnectionHandler() as database:
             try:
