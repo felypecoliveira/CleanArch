@@ -17,6 +17,11 @@ class ClientesRepositoryInterface(ABC):
                                email: str) -> Clientes:
         raise Exception(f"Must implement all methods from the interface related ")
 
+
+    @abstractmethod
+    def confirm_id_cliente(self, id:int):
+        raise Exception(f"Must implement all methods from the interface related ")
+
     @abstractmethod
     def get_clientes(self) -> Clientes:
         raise Exception(f"Must implement all methods from the interface related ")
