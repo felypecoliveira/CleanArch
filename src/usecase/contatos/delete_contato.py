@@ -1,5 +1,5 @@
 from src.interfaces.contatos.delete_contato_interface import InterfaceDeleteContato
-from src.domain.interfaces.contatos_repository_interface import ContatosRepositoryInterface
+from src.infra.repository.interfaces.contatos_repository_interface import ContatosRepositoryInterface
 from src.errors.types.http_unprocessable_entity import HttpUnprocessableEntityError
 
 

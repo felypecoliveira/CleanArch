@@ -1,4 +1,4 @@
-from src.domain.infra.db.base_settings import Base
+from src.infra.db.base_settings import Base
 from src.domain.entities.contatos import Contatos
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy import String, Date, Integer

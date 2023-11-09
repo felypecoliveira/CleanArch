@@ -1,5 +1,5 @@
 from src.interfaces.clientes.update_cliente_interface import InterfaceUpdateCliente
-from src.domain.interfaces.clientes_repository_interface import ClientesRepositoryInterface
+from src.infra.repository.interfaces.clientes_repository_interface import ClientesRepositoryInterface
 import datetime
 from datetime import date
 from src.errors.types.http_unprocessable_entity import HttpUnprocessableEntityError

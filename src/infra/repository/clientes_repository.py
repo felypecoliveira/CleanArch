@@ -1,8 +1,8 @@
-from src.domain.interfaces.clientes_repository_interface import ClientesRepositoryInterface as Interface
-from src.domain.infra.model.clientes import ClientesDominio as clientes_domain
-from src.domain.infra.model.contatos import ContatosDominio as contatos_domain
+from interfaces.clientes_repository_interface import ClientesRepositoryInterface as Interface
+from src.domain.model.clientes import ClientesDominio as clientes_domain
+from src.domain.model.contatos import ContatosDominio as contatos_domain
 from src.domain.entities.clientes import Clientes as ClientesEntity
-from src.domain.infra.db.connect_settings import *
+from src.infra.db.connect_settings import *
 from src.domain.entities.contatos import Contatos as ContatosEntity
 from datetime import date
 from typing import List

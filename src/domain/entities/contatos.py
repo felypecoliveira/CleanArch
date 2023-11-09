@@ -1,4 +1,4 @@
-from src.domain.infra.db.base_settings import Base
+from src.infra.db.base_settings import Base
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy.orm import relationship
 from sqlalchemy import ForeignKey

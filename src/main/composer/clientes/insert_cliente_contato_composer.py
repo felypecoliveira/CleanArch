@@ -1,6 +1,6 @@
 from src.presentation.controllers.clientes.insert_cls_cts_controller import InsertClientesContatosController
 from src.usecase.clientes.insert_cliente_contato import InsertClienteContato as UseCaseInsertClienteContato
-from src.domain.infra.repository.clientes_repository import ClientesRepository
+from src.infra.repository.clientes_repository import ClientesRepository
 
 
 def insert_cliente_contato_composer():

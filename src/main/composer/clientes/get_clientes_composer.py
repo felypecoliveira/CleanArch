@@ -1,5 +1,5 @@
 from src.presentation.controllers.clientes.get_clientes_controller import GetClientesController
-from src.domain.infra.repository.clientes_repository import ClientesRepository
+from src.infra.repository.clientes_repository import ClientesRepository
 from src.usecase.clientes.get_clientes import GetClientes
 
 

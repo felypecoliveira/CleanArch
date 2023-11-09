@@ -1,4 +1,4 @@
-from src.domain.infra.model.clientes import ClientesDominio
+from src.domain.model.clientes import ClientesDominio
 from abc import ABC, abstractmethod
 from typing import List
 

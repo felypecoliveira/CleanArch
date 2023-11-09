@@ -1,4 +1,4 @@
-from src.domain.infra.model.contatos import ContatosDominio
+from src.domain.model.contatos import ContatosDominio
 from abc import ABC, abstractmethod
 
 

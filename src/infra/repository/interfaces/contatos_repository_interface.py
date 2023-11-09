@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from src.domain.infra.model.contatos import ContatosDominio
+from src.domain.model.contatos import ContatosDominio
 
 
 class ContatosRepositoryInterface(ABC):
