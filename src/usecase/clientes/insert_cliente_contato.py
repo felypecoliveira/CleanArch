@@ -1,5 +1,5 @@
 from src.infra.repository.interfaces.clientes_repository_interface import ClientesRepositoryInterface
-from src.interfaces.clientes.insert_cliente_contato_interface import InterfaceClienteContato
+from src.usecase.interfaces.clientes.insert_cliente_contato_interface import InterfaceClienteContato
 from src.domain.model.clientes import ClientesDominio
 from datetime import datetime
 from src.errors.types.http_unprocessable_entity import HttpUnprocessableEntityError

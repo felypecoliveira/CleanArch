@@ -1,7 +1,7 @@
 from src.presentation.controllers.interface.controller_interface import ControllerInterface as Interface
 from src.presentation.http_types.http_request import HttpRequest
 from src.presentation.http_types.http_response import HttpResponse
-from src.interfaces.clientes.get_clientes_interface import InterfaceGetCliente
+from src.usecase.interfaces.clientes.get_clientes_interface import InterfaceGetCliente
 
 
 class GetClientesController(Interface):

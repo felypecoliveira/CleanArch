@@ -1,4 +1,4 @@
-from src.interfaces.clientes.delete_cliente_interface import InterfaceDeleteCliente
+from src.usecase.interfaces.clientes.delete_cliente_interface import InterfaceDeleteCliente
 from src.infra.repository.interfaces.clientes_repository_interface import ClientesRepositoryInterface
 from src.errors.types.http_unprocessable_entity import HttpUnprocessableEntityError
 
@@ -18,5 +18,3 @@ class DeleteCliente(InterfaceDeleteCliente):
 
         except Exception as exception:
             return {'sucess': False, 'message': HttpUnprocessableEntityError("Id cliente nao encontrado")}
-
-

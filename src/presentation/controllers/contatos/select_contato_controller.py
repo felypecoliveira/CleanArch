@@ -1,7 +1,7 @@
 from src.presentation.controllers.interface.controller_interface import ControllerInterface as Interface
 from src.presentation.http_types.http_request import HttpRequest
 from src.presentation.http_types.http_response import HttpResponse
-from src.interfaces.contatos.select_contato_interface import InterfaceSelectContato
+from src.usecase.interfaces.contatos.select_contato_interface import InterfaceSelectContato
 
 
 # id é do cliente

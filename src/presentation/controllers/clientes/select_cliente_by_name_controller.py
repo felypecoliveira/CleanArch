@@ -1,5 +1,5 @@
 from src.presentation.controllers.interface.controller_interface import ControllerInterface as Interface
-from src.interfaces.clientes.select_cliente_by_name_interface import InterfaceSelectClienteByName
+from src.usecase.interfaces.clientes.select_cliente_by_name_interface import InterfaceSelectClienteByName
 from src.presentation.http_types.http_response import HttpResponse
 from src.presentation.http_types.http_request import HttpRequest
 

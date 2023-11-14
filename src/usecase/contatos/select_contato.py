@@ -1,4 +1,4 @@
-from src.interfaces.contatos.select_contato_interface import InterfaceSelectContato
+from src.usecase.interfaces.contatos.select_contato_interface import InterfaceSelectContato
 from src.infra.repository.interfaces.contatos_repository_interface import ContatosRepositoryInterface
 from src.domain.model.contatos import ContatosDominio
 from typing import List

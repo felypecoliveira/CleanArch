@@ -1,4 +1,4 @@
-from src.interfaces.clientes.get_clientes_contatos_interface import InterfaceGetClientesContatos
+from src.usecase.interfaces.clientes.get_clientes_contatos_interface import InterfaceGetClientesContatos
 from src.infra.repository.interfaces.clientes_repository_interface import ClientesRepositoryInterface
 from src.domain.model.contatos import ContatosDominio
 from typing import List

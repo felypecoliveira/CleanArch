@@ -1,4 +1,4 @@
-from src.interfaces.clientes.select_cliente_by_name_interface import InterfaceSelectClienteByName
+from src.usecase.interfaces.clientes.select_cliente_by_name_interface import InterfaceSelectClienteByName
 from src.infra.repository.interfaces.clientes_repository_interface import ClientesRepositoryInterface
 from src.domain.entities.clientes import Clientes as DomainClientes
 from src.errors.types.http_bad_request import HttpBadRequestError

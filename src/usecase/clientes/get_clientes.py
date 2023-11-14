@@ -1,5 +1,5 @@
 from src.infra.repository.interfaces.clientes_repository_interface import ClientesRepositoryInterface
-from src.interfaces.clientes.get_clientes_interface import InterfaceGetCliente
+from src.usecase.interfaces.clientes.get_clientes_interface import InterfaceGetCliente
 from src.domain.entities.clientes import Clientes
 from typing import List
 

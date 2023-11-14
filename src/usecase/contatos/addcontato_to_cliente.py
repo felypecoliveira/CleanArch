@@ -1,4 +1,4 @@
-from src.interfaces.contatos.addcontato_to_cliente_interface import InterfaceContatoCliente
+from src.usecase.interfaces.contatos.addcontato_to_cliente_interface import InterfaceContatoCliente
 from src.infra.repository.interfaces.contatos_repository_interface import ContatosRepositoryInterface
 from src.errors.types.http_unprocessable_entity import HttpUnprocessableEntityError
 import re
