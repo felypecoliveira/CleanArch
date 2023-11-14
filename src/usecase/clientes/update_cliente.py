@@ -1,4 +1,4 @@
-from src.interfaces.clientes.update_cliente_interface import InterfaceUpdateCliente
+from src.usecase.interfaces.clientes.update_cliente_interface import InterfaceUpdateCliente
 from src.infra.repository.interfaces.clientes_repository_interface import ClientesRepositoryInterface
 import datetime
 from datetime import date
