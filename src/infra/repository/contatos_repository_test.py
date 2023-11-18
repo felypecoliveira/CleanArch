@@ -79,34 +79,28 @@ def test_select_contato():
     ...
 
 
-
 def test_update_contato():
-    try:
-        mock_id_contato = 228
-        mock_column = "nome_contato"
-        mock_update = "Pietra Diniz Alvez"
+    mock_id_contato = 228
+    mock_column = "nome_contato"
+    mock_update = "Pietra Diniz Alvez"
 
-        repository.update_contato(mock_id_contato,
-                                  mock_column,
-                                  mock_update)
+    repository.update_contato(mock_id_contato,
+                              mock_column,
+                              mock_update)
 
-        stmt = f"""
+    stmt = f"""
         SELECT * FROM CONTATOS
         WHERE ID_CONTATOS = {mock_id_contato}
         """
 
-        response = connection.execute(text(stmt))
-        registry = response.fetchall()
+    response = connection.execute(text(stmt))
+    registry = response.fetchall()
 
-        print(registry)
+    print(registry)
 
-        assert registry.nome_contato == mock_update
+    assert registry.nome_contato == mock_update
 
-    except:
-        ...
-
-
-
+  
 def __random_phone_numbers():
     prefixos = ["62", "66"]
     prefixo = random.choice(prefixos)
