@@ -1,8 +1,8 @@
 from src.infra.db.connect_settings import ConnectionHandler
+from src.infra.tests.f_tests import __random_phone_numbers
 from clientes_repository import ClientesRepository
 from sqlalchemy import text
 from faker import Faker
-import random
 
 repository = ClientesRepository()
 db_connection_handler = ConnectionHandler()
@@ -109,21 +109,19 @@ def teste_delete_cliente():
         response = connection.execute(text(inserting))
         registry = response.fetchone()
 
+        repository.delete_cliente(registry.id)
+
         after_deleted = f"""
         SELECT * FROM CLIENTES
-        WHERE NOME = '{mock_nome}'
-        AND TELEFONE = '{mock_telefone}'
-        AND CPF = '{mock_cpf}'
-        AND ENDERECO = '{mock_endereco}'
-        AND DATA_NASCIMENTO = '{mock_data_nascimento}'
+        WHERE ID = {registry.id}
         """
+        response_deleted = connection.execute(text(after_deleted))
+        registry_deleted = response_deleted.fetchone()
 
-        after_transaction = connection.execute(text(after_deleted))
-        registry_deleted_transaction = after_transaction.fetchone()
 
-        print(registry_deleted_transaction)
+        assert registry_deleted is None
 
-        assert registry_deleted_transaction is None
+
 
     except Exception:
         connection.execute(text(f"DELETE FROM CLIENTES "
@@ -278,8 +276,3 @@ def test_insert_cliente_contato():
         connection.commit()
 
 
-def __random_phone_numbers():
-    prefixos = ["62", "66"]
-    prefixo = random.choice(prefixos)
-    resto_n = random.randint(10000000, 99999999)
-    return f'{prefixo}{resto_n}'

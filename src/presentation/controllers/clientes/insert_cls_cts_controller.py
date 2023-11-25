@@ -18,8 +18,6 @@ class InsertClientesContatosController(Interface):
         telefone_contato = http_request.body["telefone_contato"]
         email = http_request.body["email"]
 
-
-
         response = self.__use_case.insert_cliente_contato(nome,
                                                           telefone,
                                                           cpf,
@@ -29,11 +27,7 @@ class InsertClientesContatosController(Interface):
                                                           telefone_contato,
                                                           email)
 
-
-
         return HttpResponse(
             status_code=200,
-            body=response
+            body={"data": response}
         )
-
-

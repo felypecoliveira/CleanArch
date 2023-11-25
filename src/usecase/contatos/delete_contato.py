@@ -9,10 +9,22 @@ class DeleteContatos(InterfaceDeleteContato):
 
     def delete_contato(self, id_: int) -> bool:
         try:
+            self.__validate_id_contato(id_)
             confirm = self.contatos_repository.confirm_id_contato(id_)
             if confirm:
                 response = self.contatos_repository.delete_contato(id_)
-                return {'sucess': True, 'message': 'delete completed'}
+                return {'sucess': True,
+                        'message': 'delete completed',
+                        'response': response}
 
-        except Exception as exception:
+        except Exception:
             return {'sucess': False, 'message': HttpUnprocessableEntityError("Id contato nao encontrado")}
+
+
+    @classmethod
+    def __validate_id_contato(cls, id):
+        if type(id) == str:
+            raise
+
+        if id <= 0:
+            raise

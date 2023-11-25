@@ -130,7 +130,6 @@ class ClientesRepository(Interface):
                         {"id": id_, column: update_}
                     ]
                 )
-
                 database.session.commit()
 
             except Exception as exception:

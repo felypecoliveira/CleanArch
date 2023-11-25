@@ -9,12 +9,25 @@ class DeleteCliente(InterfaceDeleteCliente):
 
     def delete_cliente(self, id_) -> bool:
         try:
+            self.validate_id_cliente(id_)
             confirm = self.cliente_repository.confirm_id_cliente(id_)
-
             if confirm:
                 response = self.cliente_repository.delete_cliente(id_)
-                return {'sucess': True, 'message': 'delete completed'}
+                return {
+                    'sucess': True,
+                    'message': 'delete completed',
+                    'reponse': response
+                }
 
 
-        except Exception as exception:
+        except Exception:
             return {'sucess': False, 'message': HttpUnprocessableEntityError("Id cliente nao encontrado")}
+
+    @classmethod
+    def validate_id_cliente(cls, id):
+        if type(id) == str:
+            raise
+
+        if id <= 0:
+            raise
+

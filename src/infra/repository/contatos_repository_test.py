@@ -1,8 +1,8 @@
+from src.infra.tests.f_tests import __random_phone_numbers
 from src.infra.db.connect_settings import ConnectionHandler
 from contatos_repository import ContatosRepository
 from sqlalchemy import text
 from faker import Faker
-import random
 
 db_connection_handler = ConnectionHandler()
 connection = db_connection_handler.get_engine().connect()
@@ -75,14 +75,14 @@ def test_select_contato():
 
     print(registry)
 
-    assert registry.id_cliente == mock_id_cliente
-    ...
+    assert registry.id_fk_cliente == mock_id_cliente
+
 
 
 def test_update_contato():
-    mock_id_contato = 228
+    mock_id_contato = 124
     mock_column = "nome_contato"
-    mock_update = "Pietra Diniz Alvez"
+    mock_update = "Panor"
 
     repository.update_contato(mock_id_contato,
                               mock_column,
@@ -94,18 +94,11 @@ def test_update_contato():
         """
 
     response = connection.execute(text(stmt))
-    registry = response.fetchall()
+    registry = response.fetchall()[0]
 
     print(registry)
 
     assert registry.nome_contato == mock_update
-
-  
-def __random_phone_numbers():
-    prefixos = ["62", "66"]
-    prefixo = random.choice(prefixos)
-    resto_n = random.randint(10000000, 99999999)
-    return f'{prefixo}{resto_n}'
 
 
 def __deletion(registry):

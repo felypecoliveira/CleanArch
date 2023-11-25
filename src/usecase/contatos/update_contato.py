@@ -25,10 +25,11 @@ class UpdateContatos(InterfaceUpdateContatos):
             else:
                 raise HttpUnprocessableEntityError("Campo invalido")
 
+            response = self.contatos_repository.update_contato(id_, column, update_)
 
-            self.contatos_repository.update_contato(id_, column, update_)
-
-            return {'sucess': True, 'message': "update completed sucessfully "}
+            return {'sucess': True,
+                    'message': "update sucessfuly completed",
+                    "response": response}
 
 
         except Exception as error:

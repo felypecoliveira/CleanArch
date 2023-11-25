@@ -18,24 +18,23 @@ class UpdateCliente(InterfaceUpdateCliente):
             if column == "nome":
                 nome = self.__validate_nome_cliente_update(update_)
 
-            if column == "telefone":
+            elif column == "telefone":
                 telefone = self.__validate_telefone_cliente_update(update_)
 
-            if column == "cpf":
+            elif column == "cpf":
                 cpf = self.__validate_cpf_cliente_update(update_)
 
-            if column == "data_nascimento":
+            elif column == "data_nascimento":
                 data = self.__validate_data_nascimento_cliente_update(update_)
 
             else:
                 raise HttpUnprocessableEntityError("Campo invalido")
 
-
-
             response = self.cliente_repository.update_cliente(id_, column, update_)
 
-            return {'sucess': True, 'message': "update completed sucessfully "}
-
+            return {'sucess': True,
+                    'message': "update sucessfuly completed",
+                    "response": response}
 
 
         except Exception as error:
@@ -43,7 +42,6 @@ class UpdateCliente(InterfaceUpdateCliente):
                 'sucess': False,
                 'message': error
             }
-
 
     @classmethod
     def __validate_nome_cliente_update(cls, nome):
@@ -70,7 +68,15 @@ class UpdateCliente(InterfaceUpdateCliente):
 
     @classmethod
     def __validate_cpf_cliente_update(cls, cpf):
-        cpf = cpf.replace(".", "").replace("-", "")
+        especiais = "-!@#$%¨&*()+:;|\/*."
+        if not re.match(r'^\d{3}\.\d{3}\.\d{3}-\d{2}$', cpf):
+            raise HttpUnprocessableEntityError("CPF está no formato incorreto")
+
+
+        for cpfs in cpf:
+            if cpfs in especiais:
+                raise HttpUnprocessableEntityError("Digite apenas os numeros do cpf")
+
         if not cpf.isdigit():
             raise HttpUnprocessableEntityError("CPF invalido, deve conter apenas números")
 
@@ -109,7 +115,7 @@ class UpdateCliente(InterfaceUpdateCliente):
         if cpf == cpf_11_digit:
             return cpf
         else:
-            raise HttpUnprocessableEntityError("CPF nao esta de acordo com a estrutura basica")
+            raise HttpUnprocessableEntityError("CPF nao esta de acordo com a estrutura padrao")
 
     @classmethod
     def __validate_data_nascimento_cliente_update(cls, data):

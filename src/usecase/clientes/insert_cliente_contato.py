@@ -1,8 +1,8 @@
 from src.infra.repository.interfaces.clientes_repository_interface import ClientesRepositoryInterface
 from src.usecase.interfaces.clientes.insert_cliente_contato_interface import InterfaceClienteContato
+from src.errors.types.http_unprocessable_entity import HttpUnprocessableEntityError
 from src.domain.model.clientes import ClientesDominio
 from datetime import datetime
-from src.errors.types.http_unprocessable_entity import HttpUnprocessableEntityError
 import re
 
 
@@ -62,7 +62,12 @@ class InsertClienteContato(InterfaceClienteContato):
     def __valid_name(cls, nome):
         find_numbers = [n for n in nome if n in "0123456789"]
         especial = re.match(r'^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$', nome)
-        if 1 <= len(nome) >= 50:
+        sequencia = ""
+
+        if sequencia:
+            ...
+
+        if len(nome) < 1 or len(nome) == 1 or  len(nome) > 50 or len(nome) == 50:
             raise HttpUnprocessableEntityError("Nome muito curto ou muito longo, tente novamente")
 
         if find_numbers:
@@ -85,7 +90,14 @@ class InsertClienteContato(InterfaceClienteContato):
 
     @classmethod
     def __validate_cpf(cls, cpf):
-        cpf = cpf.replace(".", "").replace("-", "")
+        especiais = "-!@#$%¨&*()+:;|\/*."
+        if not re.match(r'^\d{3}\.\d{3}\.\d{3}-\d{2}$', cpf):
+            raise HttpUnprocessableEntityError("CPF está no formato incorreto")
+
+        for cpfs in cpf:
+            if cpfs in especiais:
+                raise HttpUnprocessableEntityError("Digite apenas os numeros do cpf")
+
         if not cpf.isdigit():
             raise HttpUnprocessableEntityError("CPF invalido, deve conter apenas números")
 
@@ -124,7 +136,7 @@ class InsertClienteContato(InterfaceClienteContato):
         if cpf == cpf_11_digit:
             return cpf
         else:
-            raise HttpUnprocessableEntityError("CPF nao esta de acordo com a estrutura basica")
+            raise HttpUnprocessableEntityError("CPF nao esta de acordo com a estrutura padrao")
 
     @classmethod
     def __validate_date(cls, date_):

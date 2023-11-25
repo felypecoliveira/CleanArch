@@ -16,12 +16,10 @@ class SelectClienteByNameController(Interface):
         if response is None:
             return HttpResponse(
                 status_code=404,
-                body={"response":"cliente not found", "status_code":404}
+                body={"response": "cliente not found", "status_code": 404}
             )
 
         return HttpResponse(
             status_code=200,
-            body=response
+            body={"data": response}
         )
-
-
