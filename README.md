@@ -28,8 +28,8 @@ This is a **work in progress**. I'm still learning and may change things as I di
 
 ## 📦 Technologies Used
 
-- Language: (e.g., Python / Java / C# / TypeScript)
-- Frameworks: (if any, e.g., FastAPI / .NET / Spring Boot)
+- Language: (Python)
+- Frameworks: (DJANGO)
 - Testing: (e.g., pytest, JUnit)
 
 ## ✅ Goals
